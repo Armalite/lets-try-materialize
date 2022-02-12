@@ -21,6 +21,10 @@ The install script will do the following
  - Materalize will begin listening on the current shell
  - You will need to open another shell instance to perform further tasks
 
+# Connect to Materialize console
+Requires: Materlialize has been started in another shell (see above section)
+ - You can connect directly to the Materialize console to run commands with `make materialize-connect`
+
 # Test DBT Connectivity
 
  - Charlie bit me
