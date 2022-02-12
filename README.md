@@ -15,7 +15,7 @@ The install script will do the following
 
 # Start Materialize
 
- - You can start the local materialize instance with `make materialize-start`
+ - You can start the local materialize instance with `make mz-start`
  - Materalize will begin listening on the current shell
  - You will need to open another shell instance to perform further tasks
 
