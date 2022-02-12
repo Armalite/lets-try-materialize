@@ -1,0 +1,5 @@
+mzdata/
+mzdata/*
+./mzdata
+.venv
+mzdata

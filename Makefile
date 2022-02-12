@@ -23,8 +23,10 @@ install:
 install-poetry:
 	/bin/bash ./scripts/poetry_install.sh
 
-start-materialize:
+materialize-start:
 	materialized -w 1
+
+materialize-connect:
 	psql -U materialize -h localhost -p 6875 materialize
 
 ###############################################################################
