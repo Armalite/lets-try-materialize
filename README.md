@@ -34,6 +34,11 @@ Requires: Materialize instance running and dbt models have been executed
 
  - Show all Materialize sources: `make mz-show-sources`
  - Show all Materialize views: `make mz-show-views`
+ - Drop a Materialize source: `make mz-drop-source source=<source name>`
+ - Drop a Materialized source **and** any dependent views: `make mz-drop-source-cascade sourc=<source name>`
+ - Stream a Materialized view to stdout: `make mz-output-stream view=<view name>` 
+   - For example: `make mz-output-stream view=mzview_market_orders_avg`
+   - To exit the stream, press `CTRL + C`
 
 # Connect to Materialize console
 Requires: Materialize has been started in another shell (see above section)
