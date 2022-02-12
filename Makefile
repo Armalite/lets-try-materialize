@@ -52,6 +52,12 @@ mz-show-sources:
 mz-show-views: 
 	echo "SHOW VIEWS;" | psql -U materialize -h localhost -p 6875 materialize
 
+mz-show-objects:
+	echo "SHOW FULL OBJECTS;" | psql -U materialize -h localhost -p 6875 materialize
+
+mz-show-extended-objects:
+	echo "SHOW EXTENDED FULL OBJECTS;" | psql -U materialize -h localhost -p 6875 materialize
+
 mz-drop-source:
 	echo "DROP SOURCE IF EXISTS $(source)" | psql -U materialize -h localhost -p 6875 materialize
 
