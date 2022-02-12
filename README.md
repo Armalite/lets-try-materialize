@@ -40,4 +40,4 @@ Requires: Materialize has been started in another shell
             02:46:07    catalog item 'src_market_orders_raw' already exists
             02:46:07    compiled SQL at target/run/lets_try_materialize/models/src_market_orders_raw.sql
         ```
-   - Change the name of the view name being passed into `mz_generate_name('src_market_orders_raw')` inside `models/src_market_orders_raw.sql` to some other name
+   - *Resolution:* Change the name of the view name being passed into `mz_generate_name('src_market_orders_raw')` inside `models/src_market_orders_raw.sql` to some other name
