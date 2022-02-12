@@ -1,13 +1,12 @@
 [tool.poetry]
 name = "lets-try-materialize"
 version = "0.1.0"
-description = "The XADE Data Vault"
+description = "Let us try Materialize"
 authors = ["Adeeb R <adeeb.armalite@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-dbt-snowflake = "^1.0.0"
-dbt-materialize = "^1.0.1"
+dbt-materialize = "^1.0.0"
 snowflake-connector-python = "^2.4.6"
 pytest = "^6.2.5"
 
