@@ -43,6 +43,8 @@ dbt-debug:
 dbt-compile:
 	cd dbt; poetry run dbt compile --profiles-dir .
 
+dbt-run:
+	cd dbt; poetry run dbt run --profiles-dir .
 ###############################################################################
 # Deployment targets
 #

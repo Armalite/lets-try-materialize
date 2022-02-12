@@ -27,3 +27,17 @@ Requires: Materialize has been started in another shell (see above section)
 # Test DBT Connectivity
 Requires: Materialize has been started in another shell
  - You can test dbt connectivity to the materialize db with `make dbt-debug`
+
+# Run the DBT Models
+
+ - You can the dbt models with `make dbt-run`
+
+
+# FAQ
+
+ - Error: ```
+            02:46:07  Database Error in model src_market_orders_raw (models/src_market_orders_raw.sql)
+            02:46:07    catalog item 'src_market_orders_raw' already exists
+            02:46:07    compiled SQL at target/run/lets_try_materialize/models/src_market_orders_raw.sql
+        ```
+   - Change the name of the view name being passed into `mz_generate_name('src_market_orders_raw')` inside `models/src_market_orders_raw.sql` to some other name

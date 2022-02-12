@@ -1,7 +1,7 @@
 {{ config(materialized='source') }}
 
 {% set source_name %}
-    {{ mz_generate_name('market_orders_raw') }}
+    {{ mz_generate_name('src_market_orders_raw') }}
 {% endset %}
 
 CREATE SOURCE {{ source_name }}
