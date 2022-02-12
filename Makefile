@@ -37,7 +37,11 @@ materialize-connect:
 # Local Development Targets
 #
 ###############################################################################
+dbt-debug:
+	cd dbt; poetry run dbt debug --profiles-dir .
 
+dbt-validate:
+	cd dbt; poetry run dbt validate --profiles-dir .
 
 ###############################################################################
 # Deployment targets

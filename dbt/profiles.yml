@@ -1,0 +1,28 @@
+default:
+  outputs:
+
+    dev:
+      type: materialize
+      threads: 1
+      host: localhost
+      port: 6875
+      user: materialize
+      pass: password
+      dbname: materialize
+      schema: public
+
+    prod:
+      type: materialize
+      threads: 1
+      host: instance.materialize.cloud
+      port: 6875
+      user: materialize
+      pass: password
+      dbname: materialize
+      schema: analytics
+      sslmode: verify-ca
+      sslcert: materialize.crt
+      sslkey: materialize.key
+      sslrootcert: ca.crt
+
+  target: dev
