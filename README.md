@@ -32,13 +32,17 @@ Requires: Materialize has been started in another shell
 This repository comes with a `Makefile` that contains many targets that perform Materialized commands for you, without you needing to first connect to the Materialized console.
 Requires: Materialize instance running and dbt models have been executed
 
- - `make mz-show-sources`: Show all Materialize sources 
- - `make mz-show-views`: Show all Materialize views 
- - `make mz-drop-source source=<source name>`: Drop a Materialize source
- - `make mz-drop-source-cascade sourc=<source name>`: Drop a Materialized source **and** any dependent views 
- - `make mz-output-stream view=<view name>`: Stream a Materialized view to stdout 
-   - For example: `make mz-output-stream view=mzview_market_orders_avg`
-   - To exit the stream, press `CTRL + C`
+| Command  | Description |
+| ------------- | ------------- |
+| `make mz-show-sources`  | Show all Materialize sources |
+| `make mz-show-views` | Show all Materialize views  |
+| `make mz-drop-source source=<source name>` | Drop a Materialize source |
+| `make mz-drop-source-cascade sourc=<source name>` | Drop a Materialized source **and** any dependent views  |
+| `make mz-output-stream view=<view name>` |  - Stream a Materialized view to stdout 
+                                                - For example: `make mz-output-stream view=mzview_market_orders_avg`                                     
+                                                - - To exit the stream, press `CTRL + C` |
+   
+   
 
 # Connect to Materialize console
 Requires: Materialize has been started in another shell (see above section)
