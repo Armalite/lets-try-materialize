@@ -3,7 +3,7 @@ This repository contains a dbt project that utilizes a Materialize stream and pe
 
 Currently the pipeline subscribes to the financial securities market orders stream: https://www.pubnub.com/developers/realtime-data-streams/financial-securities-market-orders/
 
-# Environment Setup
+# 1.  Local Environment Setup
 
  1. Clone this repository
  2. Run the install script `make install`
@@ -15,13 +15,13 @@ The install script will do the following
  - Install postgres client
  - Install various other libraries that can be found listed in `pyproject.toml`
 
-# Start Materialize + Metabase
+# 2. Start Materialize
 
  - You can start the local materialize instance with `make mz-start`
  - Materalize will begin listening on the current shell
  - You will need to open another shell instance to perform further tasks (e.g. to start the Metabase service)
 
-# Start Metabase
+# 3. Start Metabase
 Metabase is a reporting/visualization tool which we will hook up to the postgres database we will use with Materialize.
 
  - You can start the Metabase service with: `make metabase-start`
@@ -30,15 +30,16 @@ Metabase is a reporting/visualization tool which we will hook up to the postgres
  - *Note: The host ip here is important if you are running Linux on WSL2. Even though the container is setup on localhost, Metabase will require the full host ip (i.e. of the container running in WSL network) to allow connectivity*
  ![](_resources/metabasepic1.png)
 
-# Test DBT Connectivity
+# 4. Test DBT Connectivity
 Requires: Materialize has been started in another shell
  - You can test dbt connectivity to the materialize db with `make dbt-debug`
 
-# Run the DBT Models
+# 5. Run the DBT Models
 
  - You can run the dbt models with `make dbt-run`
 
-# Explore Materialize models
+# Explore the Data
+## Explore Materialize models (CLI)
 This repository comes with a `Makefile` that contains many targets that perform Materialized commands for you, without you needing to first connect to the Materialized console.
 Requires: Materialize instance running and dbt models have been executed
 
@@ -50,7 +51,13 @@ Requires: Materialize instance running and dbt models have been executed
 | `make mz-drop-source source=<source name>` | Drop a Materialize source |
 | `make mz-drop-source-cascade sourc=<source name>` | Drop a Materialized source **and** any dependent views  |
 
-# Connect to Materialize console with psql cli
+## Explore the models in metabase
+Requires: Metabase has been started and a connection to the postgres database has been added via the UI
+ - You will be able to see the stream processed models under the `public` schema
+ - Under this schema you will see the aggregated (i.e. stream processed) `mzview_market_orders_avg` dataset
+ - This materialize view is constantly updating with millisecond latency
+
+## Connect to Materialize console with psql cli
 Requires: Materialize has been started in another shell (see above section)
  - You can connect directly to the Materialize console to run commands with `make materialize-connect`
  - Once connected, you can run any materialize command such as `SHOW SOURCES;` to view these
