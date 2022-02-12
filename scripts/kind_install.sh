@@ -5,7 +5,7 @@ install_kind () {
     chmod +x ./kind
     mv ./kind /some-dir-in-your-PATH/kind
     if kind --version;
-        then echo "Kind k8s installed succeeded"
+        then echo "Kind k8s install succeeded"
     else 
         echo "Kind k8s install failed"
     fi;

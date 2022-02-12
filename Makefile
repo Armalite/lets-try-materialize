@@ -19,7 +19,7 @@ help:
 # Setup/Install Targets
 #
 ###############################################################################
-install: install-poetry install-materialize install-postgres install-kubectl install-kind
+install: install-poetry install-materialize install-postgres install-kubectl install-kind install-helm
 	
 install-materialize:
 	cd scripts; chmod 777 materialize_install.sh
@@ -36,6 +36,9 @@ install-kubectl:
 
 install-kind:
 	/bin/bash ./scripts/kind_install.sh
+
+install-helm:
+	/bin/bash ./scripts/helm_install.sh
 
 ###############################################################################
 # Start / Connect Targets
