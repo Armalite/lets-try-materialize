@@ -3,6 +3,8 @@ This repository contains a dbt project that utilizes a Materialize stream and pe
 
 Currently the pipeline subscribes to the financial securities market orders stream: https://www.pubnub.com/developers/realtime-data-streams/financial-securities-market-orders/
 
+The steps outlined below also sets up a Metabase server running in docker, within which you can connect the Postgres DB instance containing the stream processed data. This will allow you to stand up visualizations/dashboards that will update with millisecond latency (near real time)
+
 # 1.  Local Environment Setup
 
  1. Clone this repository
