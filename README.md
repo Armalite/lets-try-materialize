@@ -15,11 +15,19 @@ The install script will do the following
  - Install postgres client
  - Install various other libraries that can be found listed in `pyproject.toml`
 
-# Start Materialize
+# Start Materialize + Metabase
 
  - You can start the local materialize instance with `make mz-start`
  - Materalize will begin listening on the current shell
- - You will need to open another shell instance to perform further tasks
+ - You will need to open another shell instance to perform further tasks (e.g. to start the Metabase service)
+
+# Start Metabase
+Metabase is a reporting/visualization tool which we will hook up to the postgres database we will use with Materialize.
+
+ - You can start the Metabase service with: `make metabase-start`
+ - This will spin up a docker container running Metabase on port 3000
+ - A set of database connection details will also be outputted by this script. Use these details to add a database connection when navigating to this Metabase instance on `127.0.0.1:3000`
+ - *Note: The host ip here is important if you are running Linux on WSL2. Even though the container is setup on localhost, Metabase will require the full host ip (i.e. of the container running in WSL network) to allow connectivity*
 
 # Test DBT Connectivity
 Requires: Materialize has been started in another shell

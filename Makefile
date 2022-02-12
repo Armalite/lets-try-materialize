@@ -19,7 +19,7 @@ help:
 # Setup/Install Targets
 #
 ###############################################################################
-install: install-poetry install-materialize install-postgres install-kubectl install-kind install-helm
+install: install-poetry install-materialize install-postgres 
 	
 install-materialize:
 	cd scripts; chmod 777 materialize_install.sh
@@ -31,15 +31,8 @@ install-postgres:
 install-poetry:
 	/bin/bash ./scripts/poetry_install.sh
 
-install-kubectl:
-	/bin/bash ./scripts/kubectl_install.sh
-
-install-kind:
-	/bin/bash ./scripts/kind_install.sh
-
-install-helm:
-	/bin/bash ./scripts/helm_install.sh
-
+install-nettools:
+	/bin/bash ./scripts/nettools_install.sh
 ###############################################################################
 # Start / Connect Targets
 #
@@ -47,11 +40,12 @@ install-helm:
 mz-start:
 	materialized -w 1
 
+metabase-start:
+	chmod 777 ./scripts/metabase_install.sh
+	/bin/bash ./scripts/metabase_install.sh
+
 mz-connect:
 	psql -U materialize -h localhost -p 6875 materialize
-
-kind-setup:
-	/bin/bash ./scripts/kind_setup.sh
 
 ###############################################################################
 # DBT Targets
