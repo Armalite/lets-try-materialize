@@ -1,7 +1,7 @@
 # Introduction
 This repository contains a dbt project that utilizes a Materialize stream and performs stream processing. The models designed in this repo are based off the Materialize docs. In particular, the source models subscribes to a PubNub channel, from which it receives stream data and performs transformations on this data using both `view` materialization as well as Materialized' own `materializedview` materialization.
 
-Currently the pipeline subscribes to the financial securities market orders stream: https://www.pubnub.com/developers/realtime-data-streams/financial-securities-market-orders/ 
+Currently the pipeline subscribes to the financial securities market orders stream: https://www.pubnub.com/developers/realtime-data-streams/financial-securities-market-orders/
 
 # Environment Setup
 
@@ -28,6 +28,7 @@ Metabase is a reporting/visualization tool which we will hook up to the postgres
  - This will spin up a docker container running Metabase on port 3000
  - A set of database connection details will also be outputted by this script. Use these details to add a database connection when navigating to this Metabase instance on `127.0.0.1:3000`
  - *Note: The host ip here is important if you are running Linux on WSL2. Even though the container is setup on localhost, Metabase will require the full host ip (i.e. of the container running in WSL network) to allow connectivity*
+ ![](_resources/metabasepic1.png)
 
 # Test DBT Connectivity
 Requires: Materialize has been started in another shell
@@ -37,7 +38,7 @@ Requires: Materialize has been started in another shell
 
  - You can run the dbt models with `make dbt-run`
 
-# Explore Materialize models 
+# Explore Materialize models
 This repository comes with a `Makefile` that contains many targets that perform Materialized commands for you, without you needing to first connect to the Materialized console.
 Requires: Materialize instance running and dbt models have been executed
 
