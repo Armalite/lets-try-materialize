@@ -34,7 +34,7 @@ mz-connect:
 	psql -U materialize -h localhost -p 6875 materialize
 
 ###############################################################################
-# Local Development Targets
+# DBT Targets
 #
 ###############################################################################
 dbt-debug:
@@ -46,6 +46,11 @@ dbt-compile:
 dbt-run:
 	cd dbt; poetry run dbt run --profiles-dir .
 
+
+###############################################################################
+# Materialize Instance Targets
+#
+###############################################################################
 mz-show-sources: 
 	echo "SHOW SOURCES;" | psql -U materialize -h localhost -p 6875 materialize
 
@@ -66,6 +71,7 @@ mz-drop-source-cascade:
 
 mz-stream-show:
 	echo "COPY (TAIL $(view)) TO stdout;" | psql -U materialize -h localhost -p 6875 materialize
+	
 ###############################################################################
 # Deployment targets
 #
