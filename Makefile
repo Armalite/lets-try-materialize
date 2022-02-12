@@ -15,7 +15,11 @@ help:
 	@awk '/^##.*$$/,/^[~\/\.0-9a-zA-Z_-]+:/' $(MAKEFILE_LIST) | awk '!(NR%2){print $$0p}{p=$$0}' | awk 'BEGIN {FS = ":.*?##"}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' | sort
 
 
-install: install-poetry install-materialize install-postgres
+###############################################################################
+# Setup/Install Targets
+#
+###############################################################################
+install: install-poetry install-materialize install-postgres install-kubectl install-kind
 	
 install-materialize:
 	cd scripts; chmod 777 materialize_install.sh
@@ -27,11 +31,24 @@ install-postgres:
 install-poetry:
 	/bin/bash ./scripts/poetry_install.sh
 
+install-kubectl:
+	/bin/bash ./scripts/kubectl_install.sh
+
+install-kind:
+	/bin/bash ./scripts/kind_install.sh
+
+###############################################################################
+# Start / Connect Targets
+#
+###############################################################################
 mz-start:
 	materialized -w 1
 
 mz-connect:
 	psql -U materialize -h localhost -p 6875 materialize
+
+kind-setup:
+	/bin/bash ./scripts/kind_setup.sh
 
 ###############################################################################
 # DBT Targets
@@ -71,7 +88,7 @@ mz-drop-source-cascade:
 
 mz-stream-show:
 	echo "COPY (TAIL $(view)) TO stdout;" | psql -U materialize -h localhost -p 6875 materialize
-	
+
 ###############################################################################
 # Deployment targets
 #

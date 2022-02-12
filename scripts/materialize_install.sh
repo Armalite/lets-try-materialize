@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Add the signing key for the Materialize apt repository
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 79DEC5E1B7AE7694
 
