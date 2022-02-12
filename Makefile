@@ -18,9 +18,14 @@ help:
 install: 
 	cd scripts; chmod 777 materialize_install.sh
 	/bin/bash ./scripts/materialize_install.sh
+	/bin/bash ./scripts/postgres_client_install.sh
 
 install-poetry:
 	/bin/bash ./scripts/poetry_install.sh
+
+start-materialize:
+	materialized -w 1
+	psql -U materialize -h localhost -p 6875 materialize
 
 ###############################################################################
 # Local Development Targets
