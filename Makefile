@@ -27,10 +27,10 @@ install-postgres:
 install-poetry:
 	/bin/bash ./scripts/poetry_install.sh
 
-materialize-start:
+mz-start:
 	materialized -w 1
 
-materialize-connect:
+mz-connect:
 	psql -U materialize -h localhost -p 6875 materialize
 
 ###############################################################################
@@ -45,6 +45,18 @@ dbt-compile:
 
 dbt-run:
 	cd dbt; poetry run dbt run --profiles-dir .
+
+mz-show-sources: 
+	echo "SHOW SOURCES;" | psql -U materialize -h localhost -p 6875 materialize
+
+mz-show-views: 
+	echo "SHOW VIEWS;" | psql -U materialize -h localhost -p 6875 materialize
+
+mz-drop-source:
+	echo "DROP SOURCE IF EXISTS $(source)" | psql -U materialize -h localhost -p 6875 materialize
+
+mz-drop-source-cascade:
+	echo "DROP SOURCE IF EXISTS $(source) CASCADE" | psql -U materialize -h localhost -p 6875 materialize
 ###############################################################################
 # Deployment targets
 #
