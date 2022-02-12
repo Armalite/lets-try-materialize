@@ -36,10 +36,10 @@ Requires: Materialize instance running and dbt models have been executed
 | ------------- | ------------- |
 | `make mz-show-sources`  | Show all Materialize sources |
 | `make mz-show-views` | Show all Materialize views  |
+| `make mz-stream-show view=<view name>` |  <ul><li>Stream a Materialized view to stdout</li><li>For example: `make mz-output-stream view=mzview_market_orders_avg`</li><li>To exit the stream, press `CTRL + C` </li></ul>
 | `make mz-drop-source source=<source name>` | Drop a Materialize source |
 | `make mz-drop-source-cascade sourc=<source name>` | Drop a Materialized source **and** any dependent views  |
-| `make mz-output-stream view=<view name>` |  <ul><li>Stream a Materialized view to stdout</li><li>For example: `make mz-output-stream view=mzview_market_orders_avg`</li><li>To exit the stream, press `CTRL + C` </li></ul>
-   
+
 # Connect to Materialize console
 Requires: Materialize has been started in another shell (see above section)
  - You can connect directly to the Materialize console to run commands with `make materialize-connect`

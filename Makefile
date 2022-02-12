@@ -58,7 +58,7 @@ mz-drop-source:
 mz-drop-source-cascade:
 	echo "DROP SOURCE IF EXISTS $(source) CASCADE" | psql -U materialize -h localhost -p 6875 materialize
 
-mz-output-stream:
+mz-stream-show:
 	echo "COPY (TAIL $(view)) TO stdout;" | psql -U materialize -h localhost -p 6875 materialize
 ###############################################################################
 # Deployment targets

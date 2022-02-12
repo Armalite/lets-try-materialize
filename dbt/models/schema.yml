@@ -1,7 +1,21 @@
 version: 2
 
 sources:
-  - name: market_orders_raw
-    description: Lol what description
+  - name: public
+    description: "Public schema"
     tables:
-      - name: yeh
+      - name: src_market_orders_raw
+        description: "Market order data source (PubNub)"
+models:
+  - name: view_market_orders
+    description: "Converts market order data to proper data types"
+
+  - name: mzview_market_orders_avg
+    description: "Computes the average bid price"
+    columns:
+      - name: symbol
+        description: "The stock ticker"
+        tests:
+          - not_null
+      - name: avg
+        description: "The average bid price"
