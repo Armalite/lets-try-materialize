@@ -5,6 +5,10 @@ Currently the pipeline subscribes to the financial securities market orders stre
 
 The steps outlined below also sets up a Metabase server running in docker, within which you can connect the Postgres DB instance containing the stream processed data. This will allow you to stand up visualizations/dashboards that will update with millisecond latency (near real time)
 
+# 0. Technical Prerequisites
+ - Must be working in a Unix environment e.g. Linux distro, macOS
+ - The work done on this repository was primarily built using Ubuntu 20.04
+
 # 1.  Local Environment Setup
 
  1. Clone this repository
