@@ -39,16 +39,16 @@ Requires: Materialize instance running and dbt models have been executed
 | `make mz-drop-source source=<source name>` | Drop a Materialize source |
 | `make mz-drop-source-cascade sourc=<source name>` | Drop a Materialized source **and** any dependent views  |
 
-# Connect to Materialize console
+# Connect to Materialize console with psql cli
 Requires: Materialize has been started in another shell (see above section)
  - You can connect directly to the Materialize console to run commands with `make materialize-connect`
  - Once connected, you can run any materialize command such as `SHOW SOURCES;` to view these
 
-# Materialize Console Commands to try out
+# Materialize Console Commands to try out (psql)
 *Requires: Connect to Materialize console (above section).*
 *Recommended: Ensure you have performed a `make dbt-run` for all the materialize models to execute*
 
-Connecting to the Materialize console allows you to perform Materialize daemon commands i.e. if you wish to run a command that has not been included in the Makefile targets :-)
+Connecting to the Materialize instance with psql allows you to perform commands to explore the materialize objects further i.e. if you wish to run a command that has not been included in the Makefile targets :-)
  - `SHOW SOURCES;` - will show all sources defined
  - `SHOW VIEWS;` - will show all the views defined with the dbt models
  - `COPY (TAIL mzview_market_orders_avg) TO stdout;` - This will output stream of data processed by the mzview_market_orders_avg dbt model with millisecond latency
