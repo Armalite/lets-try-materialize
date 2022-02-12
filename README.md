@@ -1,6 +1,8 @@
 # Introduction
 This repository contains a dbt project that utilizes a Materialize stream and performs stream processing. The models designed in this repo are based off the Materialize docs. In particular, the source models subscribes to a PubNub channel, from which it receives stream data and performs transformations on this data using both `view` materialization as well as Materialized' own `materializedview` materialization.
 
+Currently the pipeline subscribes to the financial securities market orders stream: https://www.pubnub.com/developers/realtime-data-streams/financial-securities-market-orders/ 
+
 # Environment Setup
 
  1. Clone this repository
