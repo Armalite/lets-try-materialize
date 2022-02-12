@@ -14,7 +14,6 @@ The install script will do the following
  - Install postgres client
  - Install various other libraries that can be found listed in `pyproject.toml`
 
-
 # Start Materialize
 
  - You can start the local materialize instance with `make materialize-start`
@@ -22,9 +21,9 @@ The install script will do the following
  - You will need to open another shell instance to perform further tasks
 
 # Connect to Materialize console
-Requires: Materlialize has been started in another shell (see above section)
+Requires: Materialize has been started in another shell (see above section)
  - You can connect directly to the Materialize console to run commands with `make materialize-connect`
 
 # Test DBT Connectivity
-
- - Charlie bit me
+Requires: Materialize has been started in another shell
+ - You can test dbt connectivity to the materialize db with `make dbt-debug`
