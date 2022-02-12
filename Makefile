@@ -19,7 +19,7 @@ help:
 # Setup/Install Targets
 #
 ###############################################################################
-install: install-poetry install-materialize install-postgres 
+install: install-poetry install-materialize install-postgres install-nettools
 	
 install-materialize:
 	cd scripts; chmod 777 materialize_install.sh
