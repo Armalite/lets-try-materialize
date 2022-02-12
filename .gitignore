@@ -3,3 +3,6 @@ mzdata/*
 ./mzdata
 .venv
 mzdata
+mzdata/persist
+mzdata/persist/blob
+mzdata/*.log
