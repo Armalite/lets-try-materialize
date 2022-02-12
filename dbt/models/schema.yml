@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: market_orders_raw
+    description: Lol what description
+    tables:
+      - name: wikirecent
+        description: >
+          Streaming event data of [recent Wikipedia changes](https://stream.wikimedia.org/v2/stream/recentchange)

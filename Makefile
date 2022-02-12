@@ -40,8 +40,8 @@ materialize-connect:
 dbt-debug:
 	cd dbt; poetry run dbt debug --profiles-dir .
 
-dbt-validate:
-	cd dbt; poetry run dbt validate --profiles-dir .
+dbt-compile:
+	cd dbt; poetry run dbt compile --profiles-dir .
 
 ###############################################################################
 # Deployment targets
