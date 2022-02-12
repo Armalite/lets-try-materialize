@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "Writing a GUI interface in Visual Basic to track the IP address..."
 hostip=$(ip addr show eth0 | awk '$1 == "inet" {gsub(/\/.*$/, "", $2); print $2}')
 echo "Host IP found as: ${hostip}"
 
