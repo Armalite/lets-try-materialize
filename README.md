@@ -26,7 +26,7 @@ Requires: Materialize has been started in another shell
 
 # Run the DBT Models
 
- - You can the dbt models with `make dbt-run`
+ - You can run the dbt models with `make dbt-run`
 
 # Explore Materialize models 
 This repository comes with a `Makefile` that contains many targets that perform Materialized commands for you, without you needing to first connect to the Materialized console.
