@@ -53,14 +53,14 @@ Requires: Materialize instance running and dbt models have been executed
 | ------------- | ------------- |
 | `make mz-show-sources`  | Show all Materialize sources |
 | `make mz-show-views` | Show all Materialize views  |
-| `make mz-stream-show view=<view name>` |  <ul><li>Stream a Materialized view to stdout</li><li>For example: `make mz-output-stream view=mzview_market_orders_avg`</li><li>To exit the stream, press `CTRL + C` </li></ul>
+| `make mz-stream-show view=<view name>` |  <ul><li>Stream a Materialized view to stdout</li><li>For example: `make mz-output-stream view=mzview_market_orders_bid_avg`</li><li>To exit the stream, press `CTRL + C` </li></ul>
 | `make mz-drop-source source=<source name>` | Drop a Materialize source |
 | `make mz-drop-source-cascade sourc=<source name>` | Drop a Materialized source **and** any dependent views  |
 
 ## Explore the models in metabase
 Requires: Metabase has been started and a connection to the postgres database has been added via the UI
  - You will be able to see the stream processed models under the `public` schema
- - Under this schema you will see the aggregated (i.e. stream processed) `mzview_market_orders_avg` dataset
+ - Under this schema you will see the aggregated (i.e. stream processed) `mzview_market_orders_bid_avg` dataset
  - This materialize view is constantly updating with millisecond latency
 
 ## Connect to Materialize console with psql cli
@@ -75,7 +75,7 @@ Requires: Materialize has been started in another shell (see above section)
 Connecting to the Materialize instance with psql allows you to perform commands to explore the materialize objects further i.e. if you wish to run a command that has not been included in the Makefile targets :-)
  - `SHOW SOURCES;` - will show all sources defined
  - `SHOW VIEWS;` - will show all the views defined with the dbt models
- - `COPY (TAIL mzview_market_orders_avg) TO stdout;` - This will output stream of data processed by the mzview_market_orders_avg dbt model with millisecond latency
+ - `COPY (TAIL mzview_market_orders_bid_avg) TO stdout;` - This will output stream of data processed by the mzview_market_orders_avg dbt model with millisecond latency
 
 # FAQ
 
