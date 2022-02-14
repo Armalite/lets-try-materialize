@@ -10,7 +10,7 @@ models:
   - name: view_market_orders
     description: "Converts market order data to proper data types"
 
-  - name: mzview_market_orders_avg
+  - name: mzview_market_orders_bid_avg
     description: "Computes the average bid price"
     columns:
       - name: symbol
